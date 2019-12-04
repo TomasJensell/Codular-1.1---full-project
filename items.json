@@ -1,0 +1,42 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "name": "HTML",
+            "price": 1299,
+            "imgName": "html.svg"
+        },
+        {
+            "id": 2,
+            "name": "CSS",
+            "price": 1399,
+            "imgName": "css.svg"
+        },
+        {
+            "id": 3,
+            "name": "JavaScript",
+            "price": 1499,
+            "imgName": "javascript.svg"
+        },
+        {
+            "id": 4,
+            "name": "Node.JS",
+            "price": 1999,
+            "imgName": "node.svg"
+        }
+    ],
+    "topcourses": [
+        {
+            "id": 5,
+            "name": "React",
+            "price": 2999,
+            "imgName": "react.svg"
+        },
+        {
+            "id": 6,
+            "name": "Angular",
+            "price": 2999,
+            "imgName": "angular.svg"
+        }
+    ]
+}

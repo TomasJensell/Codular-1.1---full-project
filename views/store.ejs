@@ -1,0 +1,116 @@
+<!-- 
+    Använde mig av EJS för att förenkla mitt sätt att koppla JSON-data till HTML-koden.
+    Så egentligen är det vanlig HTML-kod fast med EJS som hjälper till att lägga in data
+
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Codular.</title>
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://checkout.stripe.com/checkout.js" defer></script>
+    <script src="store.js" defer></script>
+    <script>
+        let stripePublicKey = '<%= stripePublicKey %>'
+    </script>
+    <script src="toggle.js" async></script>
+</head>
+
+<body>
+
+<!-- HEADER Start -->
+    <header class="main-header">
+        <h1 class="header-name">Codular.</h1>
+    </header>
+    <section>
+        <div class="cart-show">
+            <h4>Click here to view your cart!</h4>
+            <img id="toggle" src="minified/images/shopping.svg" alt="cart">
+            <h4 class="cart-update-text">Your cart is empty!</h4>
+        </div>
+    </section>
+<!-- HEADER End -->
+
+<!-- SHOPPING-CART Start -->
+    <section id="cart-toggle" class="container section-content">
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-main btn-purchase" type="button">PURCHASE</button>
+    </section>
+<!-- SHOPPING-CART End -->
+
+<!-- COURSES Start -->
+    <section class="container section-content">
+        <h2 class="section-header">Courses</h2>
+        <div class="items">
+            <% items.courses.forEach(function(item){ %>
+            <div class="item" data-item-id="<%= item.id %>">
+                <span class="item-title"><%= item.name %></span>
+                <img class="item-image" src="minified/images/<%= item.imgName %>">
+                <div class="item-details">
+                    <span class="item-price">$<%= item.price / 100 %></span>
+                    <button class="btn btn-main shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </section>
+<!-- COURSES End -->
+
+<!-- TOP COURSES Start -->
+    <section class="container section-content">
+        <h2 class="section-header">Top Courses</h2>
+        <div class="items">
+            <% items.topcourses.forEach(function(item){ %>
+            <div class="item" data-item-id="<%= item.id %>">
+                <span class="item-title"><%= item.name %></span>
+                <img class="item-image" src="minified/images/<%= item.imgName %>">
+                <div class="item-details">
+                    <span class="item-price">$<%= item.price / 100 %></span>
+                    <button class="btn btn-main shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </section>
+<!-- TOP COURSES End -->
+
+<!-- FOOTER Start -->
+    <footer class="main-footer">
+        <div class="container main-footer-container">
+            <h3 class="footer-name">Codular.</h3>
+            <ul class="nav footer-nav">
+                <li>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="minified/images/YouTube Logo.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.spotify.com" target="_blank">
+                        <img src="minified/images/Spotify Logo.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="minified/images/Facebook Logo.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+<!-- FOOTER End -->
+</body>
+
+</html>
